@@ -1,0 +1,79 @@
+.column-left {
+    background-clip: padding-box;
+    border: 10px solid transparent;
+    text-align: center;
+    border-right: 1px dashed #333;
+}
+
+.column-right {
+    background-clip: padding-box;
+    border: 10px solid transparent;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.rounded-container {
+    border-radius: 15px;
+    border-color: black;
+    text-align: center;
+    border-width: thin;
+    border-style: solid;
+}
+
+.card-header {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.section-header {
+    text-align: center;
+    width:100%
+}
+
+.card {
+    margin: 10px;
+}
+
+.card-header {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.jumbotron {
+    padding: 2rem 2rem;
+}
+
+.header-icon {
+    max-width: 2rem;
+    max-height: 2rem;
+    margin-left: 20px;
+}
+
+.cart-placeholder {
+    width: 100%;
+    margin-top: 10rem;
+    font-style: italic;
+}
+
+.quantity {
+    text-transform: lowercase;
+}
+
+.delete-icon {
+    max-width: 1rem;
+    max-height: 1rem;
+    float: right;
+    margin-right: 7px;
+}
+
+.delete-icon:hover {
+    cursor: pointer;
+}
+
+.delete-wrapper {
+    padding: .75rem 0
+}
+
+
+
+

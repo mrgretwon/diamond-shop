@@ -1,0 +1,11 @@
+.idea
+node_modules
+coverage
+build/
+.DS_Store
+.env
+npm-debug.log
+*.scssc
+config.js
+Pipfile
+package-lock.json
