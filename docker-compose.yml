@@ -1,0 +1,27 @@
+version: "2.1"
+services:
+  backend:
+    image: diamond-shop/backend
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./logs:/code/logs
+      - /django_static/:/code/static
+    ports:
+      - 8000:8000/tcp
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:9.5
+    environment:
+      POSTGRES_PASSWORD: TNTSucks!
+      POSTGRES_USER: admin
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - ./.data:/var/lib/postgresql/data
