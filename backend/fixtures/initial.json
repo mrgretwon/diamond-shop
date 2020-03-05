@@ -1,0 +1,98 @@
+[
+  {
+    "model": "core.diamond",
+    "pk": 1,
+    "fields": {
+      "type": "asscher",
+      "shape": "shapes/asscher.jpg"
+    }
+  },
+  {
+    "model": "core.diamond",
+    "pk": 2,
+    "fields": {
+      "type": "cushion",
+      "shape": "shapes/cushion.jpg"
+    }
+  },
+  {
+    "model": "core.diamond",
+    "pk": 3,
+    "fields": {
+      "type": "emerald",
+      "shape": "shapes/emerald.jpg"
+    }
+  },
+  {
+    "model": "core.diamond",
+    "pk": 4,
+    "fields": {
+      "type": "heart",
+      "shape": "shapes/heart.jpg"
+    }
+  },
+  {
+    "model": "core.diamond",
+    "pk": 5,
+    "fields": {
+      "type": "marquise",
+      "shape": "shapes/marquise.jpg"
+    }
+  },
+  {
+    "model": "core.diamond",
+    "pk": 6,
+    "fields": {
+      "type": "oval",
+      "shape": "shapes/oval.jpg"
+    }
+  },
+  {
+    "model": "core.diamond",
+    "pk": 7,
+    "fields": {
+      "type": "pear",
+      "shape": "shapes/pear.jpg"
+    }
+  },
+  {
+    "model": "core.diamond",
+    "pk": 8,
+    "fields": {
+      "type": "princess",
+      "shape": "shapes/princess.jpg"
+    }
+  },
+  {
+    "model": "core.diamond",
+    "pk": 9,
+    "fields": {
+      "type": "radiant",
+      "shape": "shapes/radiant.jpg"
+    }
+  },
+  {
+    "model": "core.diamond",
+    "pk": 10,
+    "fields": {
+      "type": "radiant-expanded",
+      "shape": "shapes/radiant-expanded.jpg"
+    }
+  },
+  {
+    "model": "core.diamond",
+    "pk": 11,
+    "fields": {
+      "type": "round",
+      "shape": "shapes/round.jpg"
+    }
+  },
+  {
+    "model": "core.cart",
+    "pk": 1,
+    "fields": {
+      "data": {},
+      "updated": false
+    }
+  }
+]

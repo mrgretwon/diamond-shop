@@ -1,0 +1,10 @@
+bind = "0.0.0.0:8000"
+workers = 1
+daemon = False
+worker_connections = 1024
+keepalive = 16
+errorlog = '/code/logs/gunicorn.log'
+accesslog = '/code/logs/gunicorn.log'
+pidfile = '/code/run-backend.pid'
+debug = True
+spew = False
