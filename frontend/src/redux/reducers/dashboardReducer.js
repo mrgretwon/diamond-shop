@@ -3,7 +3,8 @@ import * as TYPES from '../actions/actionTypes';
 const DEFAULT_STATE = {
     diamonds: [],
     diamondsFromCart: [],
-    cartChanged: false
+    cartChanged: false,
+    cartId: null
 };
 
 const reducer = (state = DEFAULT_STATE, action) => {
@@ -48,6 +49,13 @@ const reducer = (state = DEFAULT_STATE, action) => {
                 ...state,
                 diamondsFromCart: newDiamondsArray,
                 cartChanged: true
+            };
+        }
+        case TYPES.FETCH_CART_SUCCESS: {
+            return {
+                ...state,
+                diamondsFromCart: action.payload.data,
+                cartId: action.payload.id
             };
         }
         default: {

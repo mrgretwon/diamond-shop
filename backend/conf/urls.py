@@ -7,7 +7,7 @@ from core.views import DiamondList, CartView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'cart/', CartView),
+    url(r'cart/', CartView.as_view()),
     url(r'diamonds/', DiamondList.as_view())
 ]
 

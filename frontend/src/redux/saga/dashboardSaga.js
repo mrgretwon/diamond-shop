@@ -21,13 +21,29 @@ export function *getDiamonds() {
     }
 }
 
+export function *getCartData() {
+    while (true) {
+        try {
+            yield take(TYPES.FETCH_CART);
+
+            const response = yield request(GET, API_URL + 'cart/');
+            yield put({type: TYPES.FETCH_CART_SUCCESS, payload: response.data});
+            createNotification('success', 'Cart fetched')
+        } catch (e) {
+            console.error(e);
+            yield put({type: TYPES.FETCH_CART_FAILED, payload: e});
+            createNotification('danger', 'Fetching cart failed')
+        }
+    }
+}
+
 export function *saveCart() {
     while (true) {
         try {
             const {payload} = yield take(TYPES.SAVE_CART);
             console.log("payload", payload);
-            // const response = yield request(PUT, API_URL + 'diamonds/', );
-            // yield put({type: TYPES.SAVE_CART_SUCCESS, payload: response.data});
+            yield request(PUT, API_URL + 'cart/', payload);
+            yield put({type: TYPES.SAVE_CART_SUCCESS});
             createNotification('success', 'Cart changes saved')
         } catch (e) {
             console.error(e);
@@ -62,6 +78,7 @@ export function *removeDiamond() {
 export default function *dashboardSaga() {
     yield all([
         fork(getDiamonds),
+        fork(getCartData),
         fork(saveCart),
         fork(addDiamond),
         fork(removeDiamond),

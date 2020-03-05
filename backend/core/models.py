@@ -11,5 +11,5 @@ class Diamond(models.Model):
 
 
 class Cart(models.Model):
-    data = JSONField(default={})
+    data = JSONField(default=[])
     updated = models.BooleanField(default=False)
