@@ -1,6 +1,6 @@
 import {all, fork, put, take} from 'redux-saga/effects';
 import {API_URL} from '../../configuration/config';
-import request, {GET, PUT} from '../../services/request';
+import request, {GET, POST, PUT} from '../../services/request';
 import {createNotification} from '../../services/notifications';
 import * as TYPES from '../actions/actionTypes';
 
@@ -41,7 +41,6 @@ export function *saveCart() {
     while (true) {
         try {
             const {payload} = yield take(TYPES.SAVE_CART);
-            console.log("payload", payload);
             yield request(PUT, API_URL + 'cart/', payload);
             yield put({type: TYPES.SAVE_CART_SUCCESS});
             createNotification('success', 'Cart changes saved')
@@ -75,6 +74,21 @@ export function *removeDiamond() {
     }
 }
 
+export function *sendEmail() {
+    while (true) {
+        try {
+            const {payload} = yield take(TYPES.SEND_EMAIL);
+            yield request(POST, API_URL + 'send_notification/', payload);
+            yield put({type: TYPES.SEND_EMAIL_SUCCESS});
+            createNotification('success', 'Email sent')
+        } catch (e) {
+            console.error(e);
+            yield put({type: TYPES.SEND_EMAIL_FAILED, payload: e});
+            createNotification('danger', 'Sending email failed')
+        }
+    }
+}
+
 export default function *dashboardSaga() {
     yield all([
         fork(getDiamonds),
@@ -82,5 +96,6 @@ export default function *dashboardSaga() {
         fork(saveCart),
         fork(addDiamond),
         fork(removeDiamond),
+        fork(sendEmail),
     ]);
 }

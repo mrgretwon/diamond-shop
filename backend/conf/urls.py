@@ -3,12 +3,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 
-from core.views import DiamondList, CartView
+from core.views import DiamondList, CartView, send_notification
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'cart/', CartView.as_view()),
-    url(r'diamonds/', DiamondList.as_view())
+    url(r'diamonds/', DiamondList.as_view()),
+    url(r'send_notification/', send_notification)
 ]
 
 

@@ -1,15 +1,25 @@
 import os
 
-# admin
+# Admin
+
 ADMIN_ACCOUNT = {
     'username': 'admin',
-    'email': 'grz.lucki@gmail.com',
+    'email': 'djangomail2020@gmail.com',
     'password': 'TNTSucks!'
 }
 
 ADMINS = (
     (ADMIN_ACCOUNT['username'], ADMIN_ACCOUNT['email']),
 )
+
+# Email configuration
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'djangomail2020@gmail.com'
+EMAIL_HOST_PASSWORD = 'TNTSucks!'
+EMAIL_PORT = 587
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

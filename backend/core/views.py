@@ -1,8 +1,10 @@
 from rest_framework import generics, views, status
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from core.models import Diamond, Cart
 from core.serializers import DiamondSerializer, CartSerializer
+from core.utils import send_email
 
 
 class DiamondList(generics.ListCreateAPIView):
@@ -29,3 +31,9 @@ class CartView(views.APIView):
             serializer.save()
             return Response({"success": "Cart updated successfully"})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def send_notification(request):
+    send_email(request.data["email"])
+    return Response({"message": "Email has been sent"})

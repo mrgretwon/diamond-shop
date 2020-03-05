@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {makeAction} from '../redux/actions/makeAction';
-import {REMOVE_DIAMOND} from '../redux/actions/actionTypes';
 import {connect} from 'react-redux';
 import {Button, Form, Modal} from 'react-bootstrap';
+import {SEND_EMAIL} from '../redux/actions/actionTypes';
 
-const ShareModal = ({show, handleClose}) => {
+const ShareModal = ({show, handleClose, sendEmail}) => {
+
+    const [email, setEmail] = useState('');
 
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
@@ -15,7 +17,7 @@ const ShareModal = ({show, handleClose}) => {
                 <Form>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email"/>
+                        <Form.Control type="email" value={email} onChange={event => setEmail(event.target.value)} placeholder="Enter email"/>
                         <Form.Text className="text-muted">
                             Information about your cart will be sent to you.
                         </Form.Text>
@@ -26,7 +28,10 @@ const ShareModal = ({show, handleClose}) => {
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                <Button variant="primary" onClick={() => {
+                    handleClose();
+                    sendEmail({email});
+                }}>
                     Send
                 </Button>
             </Modal.Footer>
@@ -34,13 +39,11 @@ const ShareModal = ({show, handleClose}) => {
     );
 };
 
-const mapStateToProps = () => ({});
-
 const mapDispatchToProps = {
-    sendEmail: makeAction(REMOVE_DIAMOND),
+    sendEmail: makeAction(SEND_EMAIL),
 };
 
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps,
 )(ShareModal);
