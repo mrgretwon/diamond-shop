@@ -4,9 +4,14 @@ from core.models import Diamond, Cart
 
 
 class DiamondSerializer(serializers.ModelSerializer):
+    shape = serializers.SerializerMethodField()
+
     class Meta:
         model = Diamond
-        fields = '__all__'
+        fields = ['id', 'type', 'shape']
+
+    def get_shape(self, obj):
+        return obj.shape.url
 
 
 class CartSerializer(serializers.ModelSerializer):

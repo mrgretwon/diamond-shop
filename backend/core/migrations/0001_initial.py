@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             name='Cart',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('data', django.contrib.postgres.fields.jsonb.JSONField(default={})),
+                ('data', django.contrib.postgres.fields.jsonb.JSONField(default=[])),
                 ('updated', models.BooleanField(default=False)),
             ],
         ),
