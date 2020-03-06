@@ -7,7 +7,7 @@ RUN apk add --no-cache postgresql-libs musl-dev postgresql-dev bash gcc make pyt
 ADD requirements.txt /code/requirements.txt
 RUN pip install -r /code/requirements.txt
 
-RUN mkdir /code/logs/ && mkdir /code/static/
+RUN mkdir /code/logs/ && mkdir /code/static/ && mkdir /code/media/
 
 # source code
 ADD . /code
