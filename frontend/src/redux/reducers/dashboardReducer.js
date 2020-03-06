@@ -54,7 +54,7 @@ const reducer = (state = DEFAULT_STATE, action) => {
         case TYPES.FETCH_CART_SUCCESS: {
             return {
                 ...state,
-                diamondsFromCart: typeof action.payload.data === 'object' ? [] : action.payload.data,
+                diamondsFromCart: action.payload.data.length ? action.payload.data : [],
                 cartId: action.payload.id
             };
         }
