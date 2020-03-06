@@ -1,3 +1,6 @@
+import traceback
+
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics, views, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -12,6 +15,7 @@ class DiamondList(generics.ListCreateAPIView):
     serializer_class = DiamondSerializer
 
 
+@csrf_exempt
 class CartView(views.APIView):
     model = Cart
 
@@ -30,10 +34,17 @@ class CartView(views.APIView):
         if serializer.is_valid():
             serializer.save()
             return Response({"success": "Cart updated successfully"})
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
+@csrf_exempt
 @api_view(['POST'])
 def send_notification(request):
-    send_email(request.data["email"])
+    try:
+        send_email(request.data["email"])
+    except Exception as e:
+        trace_back = traceback.format_exc()
+        message = str(e) + " " + str(trace_back)
+        print(message)
+        return Response({"message": message}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     return Response({"message": "Email has been sent"})

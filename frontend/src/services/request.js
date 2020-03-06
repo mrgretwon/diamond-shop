@@ -8,7 +8,6 @@ export const DELETE = 'DELETE';
 
 const service = (requestType, url, data = {}, config = {}) => {
     request.defaults.headers.common.Authorization = '';
-    request.defaults.xsrfCookieName = 'fakeToken';
 
     switch (requestType) {
         case GET: {
