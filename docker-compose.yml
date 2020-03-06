@@ -7,9 +7,9 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./logs:/code/logs
-      - /django_static/:/code/static
+      - ./django_static/:/code/static
     ports:
-      - 8000:8000/tcp
+      - 62137:8000/tcp
     depends_on:
       db:
         condition: service_healthy

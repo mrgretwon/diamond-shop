@@ -1,12 +1,12 @@
 server {
     listen      80;
     listen [::]:80;
+    
+    server_name  shop.grzlucki.com www.shop.grzlucki.com;
+    access_log  /var/log/nginx/shop.access.log;
+    error_log /var/log/nginx/shop.error.log;
 
-    server_name  thinkspace.test.com;
-    access_log  /var/log/nginx/thinkspace.access.log;
-    error_log /var/log/nginx/thinkspace.error.log;
-
-    root /var/www/html/thinkspace;
+    root /var/www/html/shop;
     index index.html;
 
     location / {
@@ -19,10 +19,11 @@ server {
     }
 
     location /api {
-        proxy_pass http://localhost:8000;
+        proxy_pass http://localhost:62137;
     }
 
     location /admin {
-        proxy_pass http://localhost:8000;
+        proxy_pass http://localhost:62137;
     }
 }
+
