@@ -21,7 +21,7 @@ EMAIL_HOST_USER = 'djangomail2020@gmail.com'
 EMAIL_HOST_PASSWORD = 'TNTSucks!'
 EMAIL_PORT = 587
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = '/code/'
 
 MEDIA_URL = '/media/'
 
