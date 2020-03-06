@@ -29,7 +29,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SECRET_KEY = '!l_j()(0i8^eakdp!rvq=&t@q*!tsx(m!ne5b4scjf=r17z&uq'
 
-DEBUG = True
+DEBUG = False
 
 # Fixtures
 
