@@ -13,9 +13,14 @@ server {
        try_files $uri /index.html;
     }
 
+    location /media {
+        autoindex on;
+        alias /home/actina/shop/media/;
+    }
+
     location /django_static {
         autoindex on;
-        alias /django_static/;
+        alias /home/actina/shop/django_static/;
     }
 
     location /api {

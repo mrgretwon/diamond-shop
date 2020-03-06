@@ -8,6 +8,7 @@ services:
     volumes:
       - ./logs:/code/logs
       - ./django_static/:/code/static
+      - ./media/:/code/static
     ports:
       - 62137:8000/tcp
     depends_on:
