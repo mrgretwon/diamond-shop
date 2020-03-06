@@ -1,5 +1,6 @@
 import traceback
 
+from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics, views, status
 from rest_framework.decorators import api_view
@@ -15,7 +16,7 @@ class DiamondList(generics.ListCreateAPIView):
     serializer_class = DiamondSerializer
 
 
-@csrf_exempt
+@method_decorator(csrf_exempt, name='dispatch')
 class CartView(views.APIView):
     model = Cart
 
