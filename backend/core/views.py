@@ -16,7 +16,6 @@ class DiamondList(generics.ListCreateAPIView):
     serializer_class = DiamondSerializer
 
 
-@method_decorator(csrf_exempt, name='dispatch')
 class CartView(views.APIView):
     model = Cart
 
@@ -38,7 +37,6 @@ class CartView(views.APIView):
         return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-@csrf_exempt
 @api_view(['POST'])
 def send_notification(request):
     try:

@@ -70,6 +70,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'conf.urls'
 
+# Django admin cookie paths
+
+SESSION_COOKIE_PATH = '/admin'
+CSRF_COOKIE_PATH = '/admin'
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
