@@ -15,7 +15,7 @@ server {
 
     location /media {
         autoindex on;
-        alias /home/actina/shop/media/;
+        alias /home/actina/shop/backend/media/;
     }
 
     location /django_static {
