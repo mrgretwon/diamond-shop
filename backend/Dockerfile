@@ -1,6 +1,6 @@
 FROM python:3.6-alpine
 
-RUN apk add --no-cache postgresql-libs musl-dev postgresql-dev bash gcc make python-dev linux-headers && \
+RUN apk add --no-cache postgresql-libs musl-dev postgresql-dev bash gcc make python3-dev linux-headers && \
     apk del --purge
 
 # Python Requirements

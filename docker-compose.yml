@@ -10,7 +10,7 @@ services:
       - ./django_static/:/code/static
       - ./backend/media:/code/media
     ports:
-      - 62137:8000/tcp
+      - 60000:8000/tcp
     depends_on:
       db:
         condition: service_healthy

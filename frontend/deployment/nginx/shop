@@ -15,20 +15,20 @@ server {
 
     location /media {
         autoindex on;
-        alias /home/actina/shop/backend/media/;
+        alias /home/ubuntu/thinkspace/backend/media/;
     }
 
     location /django_static {
         autoindex on;
-        alias /home/actina/shop/django_static/;
+        alias /home/ubuntu/thinkspace/django_static/;
     }
 
     location /api {
-        proxy_pass http://localhost:62137;
+        proxy_pass http://localhost:60000;
     }
 
     location /admin {
-        proxy_pass http://localhost:62137;
+        proxy_pass http://localhost:60000;
     }
 }
 
