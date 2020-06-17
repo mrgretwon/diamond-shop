@@ -1,7 +1,18 @@
 server {
-    listen      80;
+    listen 80;
     listen [::]:80;
-    
+    server_name  shop.grzlucki.com www.shop.grzlucki.com;
+    access_log off;
+    error_log off;
+    return      301 https://www.shop.grzlucki.pl$request_uri;
+}
+
+server {
+    listen 443 ssl;
+
+    ssl    on;
+    ssl_certificate    /etc/nginx/ssl/cert.crt;
+    ssl_certificate_key    /etc/nginx/ssl/cert.key;
     server_name  shop.grzlucki.com www.shop.grzlucki.com;
     access_log  /var/log/nginx/shop.access.log;
     error_log /var/log/nginx/shop.error.log;
