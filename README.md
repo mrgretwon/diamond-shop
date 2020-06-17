@@ -95,4 +95,4 @@ python manage.py cart_changes
 You can also clear cart after logging to django admin, and select this action on the Cart model view. You can also add new diamond shapes here.
 
 ## DEMO
-Example is available [here](http://shop.grz.lucki.com)
+Example is available [here](http://shop.grzlucki.com)
