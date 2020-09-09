@@ -15,7 +15,7 @@
   "dependencies": {
     "@babel/core": "^7.4.4",
     "autoprefixer": "8.0.0",
-    "axios": "0.17.1",
+    "axios": "0.20.0",
     "babel-core": "6.26.0",
     "babel-jest": "22.2.2",
     "babel-loader": "7.1.2",
